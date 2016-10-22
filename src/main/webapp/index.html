@@ -1,19 +1,41 @@
 <!doctype html>
 <html lang="en" ng-app="phonecatApp">
-  <head>
+<head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width,initial-scale = 1">
     <title>Google Phone Gallery</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="app.css"/>
     <script src="node_modules/angular/angular.js"></script>
     <script src="app.module.js"></script>
     <script src="components/phone-list/phone-list.module.js"></script>
     <script src="components/phone-list/phone-list.component.js"></script>
-  </head>
-  <body>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container" style="width: 100%; margin: 0 auto">
 
-    <!-- Use a custom component to render a list of phones -->
-    <phone-list></phone-list>
+    <div class="row top-header">
+        <img src="images/logo.png" style="height: 40px; position: absolute; top: 20px; left: 20px">
+    </div>
+    <div class="row center" style="height: 200px">
+        <div class="col-sm-9" style="float: left;">
+            <div style="height: 800px; width: 480px;">
+                <img src="images/phone.png" class="img-responsive"/>
+            </div>
+        </div>
+        <div class="col-sm-3" style="width: 120px;">
+            <div class="switch" style="position: absolute; top: 100px;">
+                <input id="cmn-toggle-1" class="cmn-toggle-round" type="checkbox">
+                <label for="cmn-toggle-1"></label>
+            </div>
+        </div>
+    </div>
+</div>
 
-  </body>
+<!-- Use a custom component to render a list of phones -->
+<!--<phone-list></phone-list>-->
+
+
+</body>
 </html>

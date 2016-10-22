@@ -81,4 +81,17 @@ public class InboundUSSDMessageRequest {
         this.responseRequest = responseRequest;
     }
 
+    @Override
+    public String toString() {
+        return "InboundUSSDMessageRequest{" +
+                "address='" + address + '\'' +
+                ", sessionID='" + sessionID + '\'' +
+                ", shortCode='" + shortCode + '\'' +
+                ", keyword='" + keyword + '\'' +
+                ", inboundUSSDMessage='" + inboundUSSDMessage + '\'' +
+                ", clientCorrelator='" + clientCorrelator + '\'' +
+                ", responseRequest=" + responseRequest +
+                ", ussdAction=" + ussdAction +
+                '}';
+    }
 }
