@@ -8,9 +8,14 @@
     <link rel="stylesheet" href="app.css"/>
     <script src="node_modules/angular/angular.js"></script>
     <script src="app.module.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <script src="components/phone-list/phone-list.module.js"></script>
     <script src="components/phone-list/phone-list.component.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="components/toggle/toggle.module.js"></script>
+    <script src="components/toggle/toggle.component.js"></script>
+    <script src="components/ussd-prompt/ussd-prompt.module.js"></script>
+    <script src="components/ussd-prompt/ussd-prompt.component.js"></script>
 </head>
 <body>
 <div class="container" style="width: 100%; margin: 0 auto">
@@ -21,21 +26,25 @@
     <div class="row center" style="height: 200px">
         <div class="col-sm-9" style="float: left;">
             <div style="height: 800px; width: 480px;">
-                <img src="images/phone.png" class="img-responsive"/>
+                <div>
+                    <phone-list></phone-list>
+                </div>
+                <div style="margin: 0 auto; width: 480px; position: absolute;top: 300px;" align="center">
+                    <ussd-prompt></ussd-prompt>
+                </div>
             </div>
         </div>
         <div class="col-sm-3" style="width: 120px;">
             <div class="switch" style="position: absolute; top: 100px;">
-                <input id="cmn-toggle-1" class="cmn-toggle-round" type="checkbox">
-                <label for="cmn-toggle-1"></label>
+                <toggle></toggle>
             </div>
         </div>
+        <div class="col-sm-3" style="width: 400px">
+
+        </div>
     </div>
+    <!--<ussd-prompt></ussd-prompt>-->
 </div>
-
-<!-- Use a custom component to render a list of phones -->
-<!--<phone-list></phone-list>-->
-
-
+</div>
 </body>
 </html>

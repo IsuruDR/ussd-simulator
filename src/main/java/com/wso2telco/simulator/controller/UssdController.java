@@ -58,7 +58,7 @@ public class UssdController {
         return ussdRequest;
     }
 
-    @RequestMapping(value = "/ussd/poll/", method = RequestMethod.GET)
+    @RequestMapping(value = "/ussd/poll", method = RequestMethod.GET)
     public ResponseEntity pollRequest() {
         ResponseEntity responseEntity;
 
