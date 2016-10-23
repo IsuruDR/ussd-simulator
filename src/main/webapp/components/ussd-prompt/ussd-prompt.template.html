@@ -1,3 +1,12 @@
-<div>
-    <p>{{$ctrl.message.outboundUSSDMessage}}</p>
+<div id="ussdPrompt" class="col-sm-12 box" align="left" style="padding: 10px;display: none">
+    <p style="white-space: pre;">{{$ctrl.message.outboundUSSDMessage}}</p>
+    <input id="inputText" type="text" ng-init="inputVal=''" ng-model="inputVal" style="width: 100%">
+    <hr>
+
+    <div class="col-sm-6 left-border-only"  ng-click="$ctrl.cancel()" style="padding: 5px; cursor: pointer; cursor: hand">
+        Cancel
+    </div>
+    <div class="col-sm-6" ng-click="$ctrl.ok()"  style="padding: 5px; cursor: pointer;cursor: hand">
+        Ok
+    </div>
 </div>

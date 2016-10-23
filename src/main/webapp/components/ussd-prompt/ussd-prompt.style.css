@@ -1,0 +1,19 @@
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    border: 1px inset #13AED7;
+}
+
+.box {
+    -webkit-box-shadow: 3px 3px 5px 5px rgba(241,241,241,1);
+    -moz-box-shadow: 3px 3px 5px 5px rgba(241,241,241,1);
+    box-shadow: 3px 3px 5px 5px rgba(241,241,241,1);
+}
+
+.left-border-only {
+    border-top-style: none;
+    border-right: solid 2px #13AED7;
+    border-bottom-style: none;
+    border-left-style: none;
+}

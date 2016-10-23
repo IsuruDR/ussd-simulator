@@ -31,10 +31,10 @@ public class UssdController {
 
     private static Stack<OutboundUSSDMessageRequest> ussdStack = new Stack<>();
 
-    private static boolean isAutoReply;
+    private static boolean isAutoReply = false;
 
     @RequestMapping(value = "/ussd/v1/outbound/{senderAddress}", method = RequestMethod.POST)
-    public USSDRequest ussdRequest(@RequestBody String payload, @PathVariable String senderAddress) {
+    public USSDRequest handleUssd(@RequestBody String payload, @PathVariable String senderAddress) {
 
         USSDRequest ussdRequest = new USSDRequest();
 
