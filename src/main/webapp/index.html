@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="app.css"/>
     <link rel="stylesheet" href="components/ussd-prompt/ussd-prompt.style.css"/>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
     <script src="node_modules/angular/angular.js"></script>
     <script src="app.module.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -26,20 +27,22 @@
         <img src="images/logo.png" style="height: 40px; position: absolute; top: 20px; left: 20px">
     </div>
     <div class="row center" style="height: 200px">
-        <div class="col-sm-9" style="float: left;">
+        <div class="col-sm-12" align="center">
             <div style="height: 800px; width: 480px;">
                 <div>
                     <phone-list></phone-list>
+                    <div style="position: absolute; top: 140px;left: 480px" align="center">
+                        <toggle></toggle>
+                    </div>
                 </div>
                 <div style="margin: 0 auto; width: 480px; position: absolute;top: 250px; padding: 70px" align="center">
                     <ussd-prompt></ussd-prompt>
                 </div>
+
             </div>
         </div>
         <div class="col-sm-3" style="width: 120px;">
-            <div class="switch" style="position: absolute; top: 100px;">
-                <toggle></toggle>
-            </div>
+
         </div>
         <div class="col-sm-3" style="width: 400px">
 

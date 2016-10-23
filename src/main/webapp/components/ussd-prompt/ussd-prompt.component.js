@@ -36,7 +36,31 @@ angular.module('ussdPrompt').component('ussdPrompt', {
         };
 
         self.ok = function ok() {
-            console.log('xxxxxxxxxxxxx :' + self.reply)
+
+            var receivedData = self.message;
+            var postData = {
+                "inboundUSSDMessageRequest": {
+                    "address": "tel:+" + receivedData.address,
+                    "sessionID": "",
+                    "shortCode": receivedData.shortCode,
+                    "keyword": receivedData.keyword,
+                    "inboundUSSDMessage": self.reply,
+                    "clientCorrelator": receivedData.clientCorrelator,
+                    "responseRequest": {
+                        "notifyURL": receivedData.responseRequest.notifyURL,
+                        "callbackData": receivedData.responseRequest.callbackData
+                    },
+                    "ussdAction": receivedData.ussdAction
+                }
+            };
+
+            $http.post('http://localhost:8080/ussd/v1/updateIds', postData).then(function (response) {
+                $('#ussdPrompt').hide();
+            }, function errorCallback(response) {
+                alert('Error occurred while sending response to IDS');
+
+                $('#ussdPrompt').hide();
+            });
         }
     }
 

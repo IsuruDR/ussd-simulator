@@ -83,6 +83,17 @@ public class UssdController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
+    @RequestMapping(value = "/ussd/v1/updateIds", method = RequestMethod.POST)
+    public ResponseEntity postToIDS(@RequestBody InboundMessage inboundMessage) {
+
+        logger.info("Posting data to IDS : " + inboundMessage);
+
+        post(inboundMessage);
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+
     @RequestMapping(value = "/ussd/reset")
     public ResponseEntity resetStack() {
         ussdStack.clear();
