@@ -27,13 +27,16 @@ public class UssdController {
     @Value("${truststore.path}")
     private String truststorePath;
 
+    @Value("${ussd.auto.reply.text}")
+    private String autoReplyText;
+
     private Logger logger = Logger.getLogger(UssdController.class);
 
     private static Stack<OutboundUSSDMessageRequest> ussdStack = new Stack<>();
 
     private static boolean isAutoReply = false;
 
-    @RequestMapping(value = "/ussd/v1/outbound/{senderAddress}", method = RequestMethod.POST)
+    @RequestMapping(value = "${ussd.endpoint}", method = RequestMethod.POST)
     public USSDRequest handleUssd(@RequestBody String payload, @PathVariable String senderAddress) {
 
         USSDRequest ussdRequest = new USSDRequest();
@@ -74,11 +77,11 @@ public class UssdController {
         return responseEntity;
     }
 
-    @RequestMapping(value = "/ussd/updateAutoPlay/{isAutoPlay}")
-    public ResponseEntity updateAutoReply(@PathVariable boolean isAutoPlay) {
-        logger.info("Updating auto play to : " + isAutoPlay);
+    @RequestMapping(value = "/ussd/updateAutoReply/{isAutoReply}", method = RequestMethod.POST)
+    public ResponseEntity updateAutoReply(@PathVariable boolean isAutoReply) {
+        logger.info("Updating auto play to : " + isAutoReply);
 
-        isAutoReply = isAutoPlay;
+        UssdController.isAutoReply = isAutoReply;
 
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
@@ -154,7 +157,7 @@ public class UssdController {
         inboundReq.setAddress("tel:+" + outboundUSSDMessageRequest.getAddress());
         inboundReq.setShortCode(outboundUSSDMessageRequest.getShortCode());
         inboundReq.setKeyword(outboundUSSDMessageRequest.getKeyword());
-        inboundReq.setInboundUSSDMessage("1");
+        inboundReq.setInboundUSSDMessage(autoReplyText);
         inboundReq.setUssdAction(USSDAction.mtcont);
         inboundReq.setClientCorrelator(outboundUSSDMessageRequest.getClientCorrelator());
         inboundReq.setResponseRequest(inboundResReq);
